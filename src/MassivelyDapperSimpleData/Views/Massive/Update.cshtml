@@ -1,0 +1,21 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Post Data</legend>
+        @Html.Label("Title")
+        @Html.EditorFor(m => m)
+
+        @Html.Label("Content")
+        @Html.TextArea("Content")
+
+        <br />
+        <input type="submit" value="Update!" />
+    </fieldset>
+}

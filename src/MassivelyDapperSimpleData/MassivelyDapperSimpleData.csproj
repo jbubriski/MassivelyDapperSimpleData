@@ -39,7 +39,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.11\lib\net40\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data">
+      <HintPath>..\packages\Simple.Data.Core.0.18\lib\net40\Simple.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data.Ado">
+      <HintPath>..\packages\Simple.Data.Ado.0.18\lib\net40\Simple.Data.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data.SqlServer">
+      <HintPath>..\packages\Simple.Data.SqlServer.0.18\lib\net40\Simple.Data.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -66,9 +82,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -163,6 +176,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MassiveController.cs" />
+    <Compile Include="Controllers\PresentationController.cs" />
+    <Compile Include="DataAccessMassive\Tags.cs" />
+    <Compile Include="DataAccessMassive\Massive.cs" />
+    <Compile Include="DataAccessMassive\Posts.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +189,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Bloggy.mdf" />
+    <Content Include="App_Data\Bloggy_log.ldf">
+      <DependentUpon>Bloggy.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\ajax-loader.png" />
+    <Content Include="Content\images\icons-18-black.png" />
+    <Content Include="Content\images\icons-18-white.png" />
+    <Content Include="Content\images\icons-36-black.png" />
+    <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\jquery.mobile-1.1.1.css" />
+    <Content Include="Content\jquery.mobile-1.1.1.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.1.1.css" />
+    <Content Include="Content\jquery.mobile.structure-1.1.1.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.1.1.css" />
+    <Content Include="Content\jquery.mobile.theme-1.1.1.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -227,12 +261,14 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <None Include="Scripts\jquery-1.8.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.1.js" />
+    <Content Include="Scripts\jquery-1.8.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.23.js" />
+    <Content Include="Scripts\jquery-ui-1.8.23.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.1.1.js" />
+    <Content Include="Scripts\jquery.mobile-1.1.1.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -241,7 +277,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
-    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -281,10 +317,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Presentation\Intro.cshtml" />
+    <Content Include="Views\Shared\_LayoutjQueryMobile.cshtml" />
+    <Content Include="Views\Presentation\_ViewStart.cshtml" />
+    <Content Include="Views\Presentation\WhyNotEf.cshtml" />
+    <Content Include="Views\Presentation\WhatIsAMicroOrm.cshtml" />
+    <Content Include="Views\Presentation\BenefitsOfMicroOrms.cshtml" />
+    <Content Include="Views\Massive\Index.cshtml" />
+    <Content Include="Views\Massive\Create.cshtml" />
+    <Content Include="Views\Massive\Update.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
