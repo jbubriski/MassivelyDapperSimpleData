@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Add a Dog!";
+}
+
+<h2>Add a Dog!</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Doggy Data</legend>
+        <label>Name:</label>
+        @Html.TextBox("name")
+        <label>Number of Legs:</label>
+        @Html.DropDownList("legs", new SelectListItem[] { 
+                                    new SelectListItem { Text = "1" },
+                                    new SelectListItem { Text = "2" },
+                                    new SelectListItem { Text = "3" },
+                                    new SelectListItem { Text = "4" }
+                                  } )
+
+        <label>Dog has a tail?</label>
+        @Html.DropDownList("has_tail", new SelectListItem[] { 
+                                    new SelectListItem { Text = "yep", Value = "1" },
+                                    new SelectListItem { Text = "nope", Value = "0" }
+                                  } )
+
+        <br />
+        <input type="submit" value="Create!" />
+    </fieldset>
+}
