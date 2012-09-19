@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Delete Dog Profile for "@Model.name"?</h2>
+
+@using ( Html.BeginForm() )
+{
+    <input type="submit" value="Yes" />
+    @Html.ActionLink("No, thanks", "index")
+}
+
+@Html.ActionLink( "Back to dog list", "index" )

@@ -72,13 +72,7 @@ namespace MassiveKennel.Controllers
             try
             {
                 // TODO: Add update logic here
-                var dog = new Dogs().Single( id );
-                foreach ( var key in collection.AllKeys )
-                {
-                    dog[key] = collection.GetValue( key );
-                }
-
-                new Dogs().Update( dog, id );
+                new Dogs().Update( collection, id );
 
                 return RedirectToAction("Index");
             }
@@ -94,7 +88,7 @@ namespace MassiveKennel.Controllers
         public ActionResult Delete(int id)
         {
             var dog = new Dogs().Single( id );
-            return View();
+            return View( dog );
         }
 
         //

@@ -6,7 +6,11 @@
 
 <ul>
     @foreach(var dog in Model) {
-        <li>@Html.ActionLink((string)dog.name, "details", new { id = (int)dog.id })</li>
+        <li>@Html.ActionLink((string)dog.name, "details", new { id = (int)dog.id }) 
+            - 
+            @Html.ActionLink("Edit", "edit", new { id = (int)dog.id }) | 
+            @Html.ActionLink("Delete", "delete", new { id = (int)dog.id })
+        </li>
     }
 </ul>
 

@@ -5,15 +5,12 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
+                <h1>Dogs. Data Access. Two Guys.</h1>
+                <h2>What more could you want?</h2>
             </hgroup>
             <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+                Welcome to MassiveKennel! This is a sample app written in C#, running on Asp.net MVC4 that 
+                we built to demo how to use the Micro ORM Massive!
             </p>
         </div>
     </section>
@@ -21,13 +18,9 @@
 <h3>We suggest the following:</h3>
 <ol class="round">
     <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
+        <h5>View the list of Dogs</h5>
+        Check out the list of dogs currently in our Kennel!
+        @Html.ActionLink("View Dogs", "index", new{ controller = "Dogs"})
     </li>
 
     <li class="two">
@@ -37,9 +30,8 @@
     </li>
 
     <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+        <h5>Add a new Dog to the Kennel!</h5>
+        There are never enough dogs in our kennel, go ahead and add some more!
+        @Html.ActionLink("Add a Dog", "create",new { controller = "Dogs" })
     </li>
 </ol>

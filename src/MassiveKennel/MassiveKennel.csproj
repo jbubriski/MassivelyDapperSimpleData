@@ -241,6 +241,8 @@
     <Content Include="Views\Dogs\Index.cshtml" />
     <Content Include="Views\Dogs\Create.cshtml" />
     <Content Include="Views\Dogs\Details.cshtml" />
+    <Content Include="Views\Dogs\Edit.cshtml" />
+    <Content Include="Views\Dogs\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
