@@ -9,12 +9,15 @@ namespace MassiveKennel.Controllers
 {
     public class DogsController : Controller
     {
+
+        private Dogs _dogsTable = new Dogs();
+
         //
         // GET: /Dogs/
 
         public ActionResult Index()
         {
-            var topTenDogs = new Dogs().All( orderBy: "legs DESC" );
+            var topTenDogs = _dogsTable.All( orderBy: "legs DESC" );
             return View( topTenDogs );
         }
 
@@ -23,7 +26,7 @@ namespace MassiveKennel.Controllers
 
         public ActionResult Details(int id)
         {
-            var dog = new Dogs().Single( id );
+            var dog = _dogsTable.Single( id );
             return View( dog );
         }
 
@@ -44,7 +47,7 @@ namespace MassiveKennel.Controllers
             try
             {
                 // TODO: Add insert logic here
-                new Dogs().Insert( collection );
+                _dogsTable.Insert( collection );
 
                 return RedirectToAction("Index");
             }
@@ -59,7 +62,7 @@ namespace MassiveKennel.Controllers
 
         public ActionResult Edit(int id)
         {
-            var dog = new Dogs().Single( id );
+            var dog = _dogsTable.Single( id );
             return View( dog );
         }
 
@@ -72,7 +75,7 @@ namespace MassiveKennel.Controllers
             try
             {
                 // TODO: Add update logic here
-                new Dogs().Update( collection, id );
+                _dogsTable.Update( collection, id );
 
                 return RedirectToAction("Index");
             }
@@ -87,7 +90,7 @@ namespace MassiveKennel.Controllers
 
         public ActionResult Delete(int id)
         {
-            var dog = new Dogs().Single( id );
+            var dog = _dogsTable.Single( id );
             return View( dog );
         }
 
@@ -100,7 +103,7 @@ namespace MassiveKennel.Controllers
             try
             {
                 // TODO: Add delete logic here
-                new Dogs().Delete( id );
+                _dogsTable.Delete( id );
 
                 return RedirectToAction("Index");
             }
