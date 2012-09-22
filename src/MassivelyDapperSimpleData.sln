@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2D6F58
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveKennel", "MassiveKennel\MassiveKennel.csproj", "{BA8AD39A-2A1D-4B7E-B346-786537FC5015}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperKennel", "DapperKennel\DapperKennel.csproj", "{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kennel.Helpers", "Kennel.Helpers\Kennel.Helpers.csproj", "{C831E411-DB9A-492D-BEEB-E0A0A42AF6E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataKennel", "SimpleDataKennel\SimpleDataKennel.csproj", "{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveKennel", "MassiveKennel\MassiveKennel.csproj", "{93453D18-6742-46A3-AAAD-968D74218889}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +28,6 @@ Global
 		{57D70859-936A-4FAB-AD9B-807D444E752C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57D70859-936A-4FAB-AD9B-807D444E752C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57D70859-936A-4FAB-AD9B-807D444E752C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA8AD39A-2A1D-4B7E-B346-786537FC5015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA8AD39A-2A1D-4B7E-B346-786537FC5015}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA8AD39A-2A1D-4B7E-B346-786537FC5015}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA8AD39A-2A1D-4B7E-B346-786537FC5015}.Release|Any CPU.Build.0 = Release|Any CPU
 		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +40,10 @@ Global
 		{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93453D18-6742-46A3-AAAD-968D74218889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93453D18-6742-46A3-AAAD-968D74218889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93453D18-6742-46A3-AAAD-968D74218889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93453D18-6742-46A3-AAAD-968D74218889}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

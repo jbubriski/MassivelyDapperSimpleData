@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>0f57a5e0-2832-43f4-ba78-0fa262c16cab</ProjectGuid>
+    <ProjectGuid>{93453D18-6742-46A3-AAAD-968D74218889}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MassiveKennel</RootNamespace>
