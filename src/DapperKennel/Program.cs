@@ -22,6 +22,9 @@ namespace DapperKennel
 
         private static void ListOwners()
         {
+            Console.WriteLine("\n\n");
+            Console.WriteLine("===Owners===");
+
             var owners = GetOwners();
 
             foreach (var owner in owners)
@@ -44,6 +47,9 @@ FROM Owners");
 
         private static void ListOwnersDetailed()
         {
+            Console.WriteLine("\n\n");
+            Console.WriteLine("===Owners===");
+
             var owners = GetOwnersDetailed();
 
             foreach (var owner in owners)
@@ -89,6 +95,9 @@ JOIN Dogs d on o.Id = d.OwnerId",
 
         private static void ListDogs()
         {
+            Console.WriteLine("\n\n");
+            Console.WriteLine("===Dogs===");
+
             var dogs = GetDogs();
 
             foreach (var dog in dogs)
@@ -112,12 +121,18 @@ FROM Dogs d");
 
         private static void ListDogsDetailed()
         {
+            Console.WriteLine("\n\n");
+            Console.WriteLine("===Dogs===");
+
             var dogs = GetDogsDetailed();
 
             foreach (var dog in dogs)
             {
                 Console.WriteLine(dog.Name);
-                Console.WriteLine("\t{0}", dog.Owner.Name);
+                Console.WriteLine("\tOwner: {0}", dog.Owner.Name);
+                Console.WriteLine("\tBreed: {0}", dog.Breed.Name);
+                Console.WriteLine("\tLegs: {0}", dog.Legs);
+                Console.WriteLine("\tHas Tail? {0}", dog.HasTail);
             }
         }
 
@@ -128,13 +143,15 @@ FROM Dogs d");
                 connection.Open();
 
                 // Query<Parent, Child, Parent>(sql, MapFunction)
-                return connection.Query<Dog, Owner, Dog>(@"
+                return connection.Query<Dog, Owner, Breed, Dog>(@"
 SELECT *
 FROM Dogs d
-JOIN Owners o on o.Id = d.OwnerId",
-                    (dog, owner) =>
+JOIN Owners o on o.Id = d.OwnerId
+JOIN Breeds b on b.Id = d.BreedId",
+                    (dog, owner, breed) =>
                     {
                         dog.Owner = owner;
+                        dog.Breed = breed;
                         return dog;
                     });
             }

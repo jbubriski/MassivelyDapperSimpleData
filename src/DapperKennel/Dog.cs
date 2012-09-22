@@ -14,5 +14,9 @@ namespace DapperKennel
         public Breed Breed { get; set; }
 
         public string Name { get; set; }
+
+        public int Legs { get; set; }
+
+        public bool HasTail { get; set; }
     }
 }
