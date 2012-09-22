@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MassiveKennel")]
+[assembly: AssemblyTitle("SimpleDataKennel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MassiveKennel")]
+[assembly: AssemblyProduct("SimpleDataKennel")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0f57a5e0-2832-43f4-ba78-0fa262c16cab")]
+[assembly: Guid("c4f6099d-61a1-4f15-b937-09b2b9ecdd90")]
 
 // Version information for an assembly consists of the following four values:
 //
