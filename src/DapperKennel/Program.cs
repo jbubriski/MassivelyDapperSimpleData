@@ -12,70 +12,12 @@ namespace DapperKennel
     {
         static void Main(string[] args)
         {
-            Setup();
+            ListOwners();
+            ListOwnersDetailed();
+            ListDogs();
+            ListDogsDetailed();
 
-            ConsoleKeyInfo key;
-
-            do
-            {
-                PrintMenu();
-
-                key = Console.ReadKey();
-
-                switch (key.KeyChar)
-                {
-                    case '1':
-                        ListOwners();
-                        break;
-                    case '2':
-                        ListOwnersDetailed();
-                        break;
-                    case '3':
-                        ListDogs();
-                        break;
-                    case '4':
-                        ListDogsDetailed();
-                        break;
-                    case '5':
-                        Console.WriteLine("Say What?");
-                        break;
-                }
-            }
-            while (key.Key != ConsoleKey.Escape);
-        }
-
-        private static void Setup()
-        {
-            var createSql = @"
-                create table #Owners (Id int, Name varchar(20))
-                create table #Dogs (Id int, OwnerId int, Name varchar(20))
-
-                insert #Owners values(1, 'John')
-                insert #Owners values(2, 'Jared')
-
-                insert #Dogs values(1, 1, 'Skippy')
-                insert #Dogs values(2, 1, 'Waffles')
-                insert #Dogs values(3, 2, 'Bizkit')
-                insert #Dogs values(4, 3, 'Gregg')
-";
-            using (var connection = ConnectionHelper.GetConnection())
-            {
-                connection.Open();
-
-                connection.Execute(createSql);
-            }
-        }
-
-        private static void PrintMenu()
-        {
-            Console.Clear();
-
-            Console.WriteLine("Kennel Main Menu");
-
-            Console.WriteLine("1. List Owners");
-            Console.WriteLine("2. List Owners Detailed");
-            Console.WriteLine("3. List Dogs");
-            Console.WriteLine("4. List Dogs Detailed");
+            Console.ReadKey();
         }
 
         private static void ListOwners()
@@ -121,12 +63,27 @@ FROM Owners");
             {
                 connection.Open();
 
+                var owners = new Dictionary<int, Owner>();
+
                 // Query<Parent, Child, Parent>(sql, MapFunction)
-                return connection.Query<Owner, Dog, Owner>(@"
+                connection.Query<Owner, Dog, Owner>(@"
 SELECT *
 FROM Owners o
-JOIN Dogs d on o.Id = d.OwnerId", 
-                    (owner, dog) => { owner.Dogs.Add(dog); return owner; });
+JOIN Dogs d on o.Id = d.OwnerId",
+                    (owner, dog) => {
+                        Owner found;
+
+                        if (!owners.TryGetValue(owner.Id, out found))
+                        {
+                            owners.Add(owner.Id, found = owner);
+                        }
+                        
+                        found.Dogs.Add(dog);
+
+                        return found;    
+                    });
+
+                return owners.Values;
             }
         }
 
@@ -155,7 +112,7 @@ FROM Dogs d");
 
         private static void ListDogsDetailed()
         {
-            var dogs = GetDogs();
+            var dogs = GetDogsDetailed();
 
             foreach (var dog in dogs)
             {

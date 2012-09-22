@@ -11,5 +11,10 @@ namespace DapperKennel
         public string Name { get; set; }
 
         public List<Dog> Dogs { get; set; }
+
+        public Owner()
+        {
+            Dogs = new List<Dog>();
+        }
     }
 }

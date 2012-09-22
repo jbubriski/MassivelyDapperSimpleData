@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Breed.cs" />
     <Compile Include="Dog.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Program.cs" />
