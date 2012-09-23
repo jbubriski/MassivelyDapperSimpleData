@@ -1,0 +1,6 @@
+exec usp_ETL_Load_Badges
+exec usp_ETL_Load_Comments
+exec usp_ETL_Load_Posts
+exec usp_ETL_Load_PostsTags
+exec usp_ETL_Load_Users
+exec usp_ETL_Load_Votes
