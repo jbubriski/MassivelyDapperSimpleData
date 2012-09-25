@@ -18,6 +18,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataKennel", "SimpleD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveKennel", "MassiveKennel\MassiveKennel.csproj", "{93453D18-6742-46A3-AAAD-968D74218889}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{87390421-BCDA-45DC-80F9-7BD07D4444D3}"
+	ProjectSection(SolutionItems) = preProject
+		..\presentation\apple-touch-icon.png = ..\presentation\apple-touch-icon.png
+		..\presentation\favicon.png = ..\presentation\favicon.png
+		..\presentation\index.html = ..\presentation\index.html
+		..\presentation\mine.html = ..\presentation\mine.html
+		..\presentation\README.md = ..\presentation\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
