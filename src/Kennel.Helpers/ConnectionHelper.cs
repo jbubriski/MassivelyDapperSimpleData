@@ -13,7 +13,11 @@ namespace Kennel.Helpers
     {
         public static IDbConnection GetConnection()
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["Default"].ConnectionString);
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Default"].ConnectionString);
+
+            connection.Open();
+
+            return connection;
         }
     }
 }

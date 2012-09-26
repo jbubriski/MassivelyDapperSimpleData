@@ -1,0 +1,13 @@
+﻿@model IEnumerable<StackUnderToe.Post>
+@{
+    ViewBag.Title = "Stack Under Toe";
+}
+
+<h2>The Newest Unanswered Questions</h2>
+
+<ul>
+    @foreach (var question in Model)
+    {
+        <li>@question.Title</li>
+    }
+</ul>

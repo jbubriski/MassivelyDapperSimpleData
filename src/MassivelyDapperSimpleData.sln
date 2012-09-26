@@ -26,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentatio
 		..\presentation\mine.html = ..\presentation\mine.html
 		..\presentation\README.md = ..\presentation\README.md
 	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackUnderToe", "StackUnderToe\StackUnderToe.csproj", "{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +54,10 @@ Global
 		{93453D18-6742-46A3-AAAD-968D74218889}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93453D18-6742-46A3-AAAD-968D74218889}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93453D18-6742-46A3-AAAD-968D74218889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

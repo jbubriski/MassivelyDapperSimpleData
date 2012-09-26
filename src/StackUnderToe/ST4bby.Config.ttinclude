@@ -1,0 +1,129 @@
+﻿<#@ template language="C#" hostspecific="true" Debug="false" #>
+<#@ Assembly Name="System.Data" #>
+<#@ Assembly Name="System.Configuration" #>
+<#@ Assembly Name="System.Web" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data.Common" #>
+<#@ import namespace="System.Configuration" #>
+<#+
+    // CONFIGURE YOUR DATABASE SETTINGS HERE
+
+    // Required settings:
+    string NameSpaceName                = @"StackUnderToe";
+    string ServerName                   = @".\sqlexpress";
+    string DatabaseName                 = @"Gaming";
+
+    // If you want to use sql authentication fill out these two variables...
+    string SqlAuth_Username             = @"";
+    string SqlAuth_Password             = @"";
+
+    // ...or if you want to use a connection from your App/Web.config
+    string Config_ConnectionName        = @"";
+
+    // CONFIGURE CODE GENERATION HERE
+
+    // Regex filter for the tables that are excluded from code generation.
+    // E.g.: "Applications|aspnet_.*" would exclude the tables for the ASP.NET Membership Provider.
+    const string ExcludeTablesRegex = "";
+
+    // Regex filter for the tables that are included for code generation.
+    // Note: Exclusions take precedence over inclusions.
+    // E.g.: "Applications|aspnet_.*" would include the tables for the ASP.NET Membership Provider.
+    const string IncludeTablesRegex = "";
+
+    // The format for the class file name.
+    // By default ST4bby uses the following format: {schema}.{tablename}
+    // You can use the following data points:
+    //   {schema} -> the schema of your table e.g. "dbo"
+    //   {table} -> the name of your table
+    //   {database} -> the name of your database
+    // ".cs" will be used as the file extension if it is not present at the end of the format
+    const string FileNameFormat = "{table}.cs";
+
+    // Set to true for making partial class.
+    const bool UsePartialClass = false;
+
+    // Set to true for having the schema in the namespace affect the namespace.
+    // The namespace will for instance be "MyDatalayer.dbo".
+    // With value set to false the schema will be unused.
+    // The namespace will then be "MyDatalayer".
+    const bool UseSchemaForNamespace = false;
+
+    // Static constructor name.
+    // Leave blank if no static constructor should be created.
+    const string NameOfStaticConstructor = "";
+
+    // Set whether the class should inherit or implement an interface or two.
+    // Leave blank no inheritance or interface implementing is to be created.
+    // E.g.: ClassInheritFrom = "MyBaseClass, IMyInterface".
+    const string ClassInheritFrom = "";
+
+    // The Path to the
+    // E.g.:
+    //     Models
+    //     Models/SubModels
+    const string TargetPath = "Models";
+
+
+
+    // DON'T CHANGE ANYTHING BELOW HERE UNLESS
+    // YOU HAVE MORE THAN 1000 FOLLOWERS ON TWITTER
+
+    string SqlAuthConnectionString = "Data Source={0};Initial Catalog={1};User Id={2};Password={3};";
+    string TrustedConnectionString = "Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
+
+    bool ConfigIsValid()
+    {
+        return !string.IsNullOrWhiteSpace( NameSpaceName )
+            && !string.IsNullOrWhiteSpace( ServerName )
+            && !string.IsNullOrWhiteSpace( DatabaseName );
+    }
+
+    string GetConnectionString()
+    {
+        string conn = String.Format( TrustedConnectionString, ServerName, DatabaseName );
+
+        if( !String.IsNullOrWhiteSpace( SqlAuth_Username ) )
+        {
+           conn = String.Format(SqlAuthConnectionString, ServerName, DatabaseName, SqlAuth_Username, SqlAuth_Password);
+        }
+        else if(!String.IsNullOrWhiteSpace(Config_ConnectionName))
+        {
+            var configFile = new ExeConfigurationFileMap { ExeConfigFilename = GetRootProjectDirectory() };
+            var config = System.Configuration.ConfigurationManager.OpenMappedExeConfiguration( configFile, ConfigurationUserLevel.None );
+            conn = config.ConnectionStrings.ConnectionStrings[Config_ConnectionName].ConnectionString;
+        }
+
+        return conn;
+    }
+
+    int recurseCount = 0;
+
+    string GetRootProjectDirectory( string root = null )
+    {
+        ++recurseCount;
+
+        if( root == null )
+        {
+            recurseCount = 0;
+            root = Host.TemplateFile;
+        }
+
+        string templateDirectory = Path.GetDirectoryName(root);
+
+        var files = Directory.GetFiles( templateDirectory, "app.config", SearchOption.TopDirectoryOnly ) ??
+                    Directory.GetFiles( templateDirectory, "web.config", SearchOption.TopDirectoryOnly );
+
+        if( files == null )
+        {
+            if(recurseCount < 100)
+            {
+                templateDirectory = GetRootProjectDirectory( Directory.GetParent( templateDirectory ).FullName );
+            }
+        }
+
+        return Path.Combine( templateDirectory, files[0] );
+    }
+#>

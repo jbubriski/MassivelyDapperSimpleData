@@ -17,6 +17,8 @@ namespace DapperKennel
             ListDogs();
             ListDogsDetailed();
 
+            CreateOwner();
+
             Console.ReadKey();
         }
 
@@ -37,8 +39,6 @@ namespace DapperKennel
         {
             using (var connection = ConnectionHelper.GetConnection())
             {
-                connection.Open();
-
                 return connection.Query<Owner>(@"
 SELECT *
 FROM Owners");
@@ -67,8 +67,6 @@ FROM Owners");
         {
             using (var connection = ConnectionHelper.GetConnection())
             {
-                connection.Open();
-
                 var owners = new Dictionary<int, Owner>();
 
                 // Query<Parent, Child, Parent>(sql, MapFunction)
@@ -110,9 +108,6 @@ JOIN Dogs d on o.Id = d.OwnerId",
         {
             using (var connection = ConnectionHelper.GetConnection())
             {
-                connection.Open();
-
-                // Query<Parent, Child, Parent>(sql, MapFunction)
                 return connection.Query<Dog>(@"
 SELECT *
 FROM Dogs d");
@@ -140,9 +135,7 @@ FROM Dogs d");
         {
             using (var connection = ConnectionHelper.GetConnection())
             {
-                connection.Open();
-
-                // Query<Parent, Child, Parent>(sql, MapFunction)
+                // Query<Parent, Child, Child, Parent>(sql, MapFunction)
                 return connection.Query<Dog, Owner, Breed, Dog>(@"
 SELECT *
 FROM Dogs d
@@ -154,6 +147,33 @@ JOIN Breeds b on b.Id = d.BreedId",
                         dog.Breed = breed;
                         return dog;
                     });
+            }
+        }
+
+        private static void CreateOwner()
+        {
+            var owner = new Owner();
+
+            Console.WriteLine("Enter the new Owner's name:");
+
+            owner.Name = Console.ReadLine();
+
+            InsertOwner(owner);
+
+            Console.WriteLine("Owner '{0}' created!", owner.Name);
+            Console.WriteLine();
+        }
+
+        private static int InsertOwner(Owner owner)
+        {
+            using (var connection = ConnectionHelper.GetConnection())
+            {
+                return connection.Execute(@"
+INSERT INTO
+Owners
+(Name)
+VALUES
+(@Name)", owner);
             }
         }
     }
