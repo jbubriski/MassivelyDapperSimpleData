@@ -15,12 +15,11 @@ namespace StackUnderToe.Controllers
             using (var connection = ConnectionHelper.GetConnection())
             {
                 var posts = connection.Query<Post>(@"
-SELECT TOP (@Top) *
-FROM Posts
-WHERE PostTypeId = 1
-    AND AcceptedAnswerId IS NULL
-ORDER BY CreationDate DESC
-                ", new { Top = 20 });
+                                SELECT TOP (@Top) *
+                                FROM Posts
+                                WHERE PostTypeId = 1
+                                    AND AcceptedAnswerId IS NULL
+                                ORDER BY CreationDate DESC", new { Top = 20 });
 
                 return View(posts);
             }
