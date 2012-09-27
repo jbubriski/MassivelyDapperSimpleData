@@ -20,6 +20,8 @@ namespace SimpleDataKennel
                 Console.WriteLine( dog.name );
             }
 
+
+            // get all the dogs, their owners name, and the dogs breed
             var dogsAndOwners = db.Dogs.Query()
                                     .Join( db.Owners ).On( db.Owners.Id == db.Dogs.OwnerId )
                                     .Join( db.Breeds ).On( db.Breeds.Id == db.Dogs.BreedId )
