@@ -55,6 +55,12 @@
             <br />
             <small>A John Bubriski &amp; Jared Barboza joint</small>
         </q>
+        <!--
+            introduce yourself, hand-off to other presenter for introduction, 
+            touch on rough outline of presentation and small backstory
+            
+            ... peachtree? Ref that the project used Dapper, EF and Massive        
+        -->
     </div>
 
     <div class="step slide" data-x="0" data-y="-1500">
@@ -65,6 +71,9 @@
             <br />
             <div style="float: right">...how many of you just broke out in a cold sweat?</div>
         </q>
+        <!--
+           The elephant in the room, we all hate EDMX. Almost anything would be better than working in it.     
+        -->
     </div>
 
     <div class="step slide" data-x="1000" data-y="-1500">
@@ -73,15 +82,25 @@
             <div style="font-size: .5em">
                 <img src="images/unicron-idw.jpg" style="float:left; height: 450px;" />
                 <p style="float: right; width: 460px; line-height: 45px;">
-                    <span style="color: green;">* Supports Relationships<br />* Makes querying your database easy</span><br />
+                    <span style="color: green;">* Supports Relationships<br />* Effectively models your db in code<br />* Easy setup/DevX in most scenarios</span><br />
                     <span style="color: red;">* Slow initialization (query gen)<br />
                         * Hard to debug query generation issues<br />
-                        * Hard to control generated sql<br />
+                        * Can't control generated sql (suggest-only)<br />
                         * Complicated Configuration
                     </span>
                 </p>
             </div>
         </q>
+        <!--
+           Entity Framework, recently open-sourced on codeplex
+            not a bad solution but not always the best
+            this isn't EF bashing, this is education about right tool for right job.
+
+            Abstraction layer, you're getting further away from the problems you're trying to solve.
+
+            Another analogy for EF: Vegas.
+            Whatever in the ORM stays in the ORM!
+        -->
     </div>
 
     <div class="step slide" data-x="2000" data-y="-1500">
@@ -91,6 +110,13 @@
                 <em>"An ORM that does a lot less work." - Sam Saffron.</em>
             </p>
         </q>
+        <!--
+            A micro-orm a thin wrapper on your sql queries.
+
+            Query generation and execution.
+
+            Lead into next slide "So what does that mean?"...
+        -->
     </div>
 
     <div class="step slide" data-x="3000" data-y="-1500">
@@ -98,9 +124,10 @@
             <big>Micro ORMS</big>
             <p>
                 <ul>
-                    <li>close to the "metal"</li>
+                    <li>close to the "metal" (speed)</li>
+                    <li>fancily hands you back your data</li>
                     <li>thin wrapper around SQL</li>
-                    <li>can run straight SQL easily </li>
+                    <li>can run straight SQL easily</li>
                 </ul>
             </p>
         </q>
@@ -114,6 +141,9 @@
             </div>
             <div style="float: right">...does this mean I have to learn SQL?</div>
         </q>
+        <!--
+            pause for effect.
+        -->
     </div>
 
     <div class="step slide" data-x="5000" data-y="-1500">
@@ -121,6 +151,10 @@
             <div align="center"><big>YES.</big></div>
             <div align="center"><small>(SQL isn't going away anytime soon.)</small></div>
         </q>
+
+        <!--
+           Understanding the underlying tech will help you. 
+        -->
     </div>
 
     <div class="step slide" data-x="6000" data-y="-1500">
@@ -132,6 +166,9 @@
                 <li>~400 Lines of Code</li>
             </ul>
         </q>
+        <!--
+            
+        -->
     </div>
 
     <div class="step slide" data-x="7000" data-y="-1500">
@@ -160,6 +197,18 @@
 
     <div class="step slide" data-x="9000" data-y="-1500">
         <q>
+            <big>Demo!</big>
+            <div align="center">
+                <img src="images/wild_stallions.jpg" />
+            </div>
+            <div align="center">
+                <small>can you believe they are making a third one of these?!</small>
+            </div>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="10000" data-y="-1500">
+        <q>
             <big>Dapper</big>
             <ul>
                 <li>Sam Saffron <small>(StackExchange, MiniProfiler)</small></li>
@@ -168,7 +217,7 @@
         </q>
     </div>
 
-    <div class="step slide" data-x="10000" data-y="-1500">
+    <div class="step slide" data-x="11000" data-y="-1500">
         <q>
             <big>Dapper: The Good</big>
             <ul>
@@ -180,7 +229,7 @@
         </q>
     </div>
 
-    <div class="step slide" data-x="11000" data-y="-1500">
+    <div class="step slide" data-x="12000" data-y="-1500">
         <q>
             <big>Dapper: The Bad</big>
             <ul>
@@ -190,7 +239,19 @@
         </q>
     </div>
 
-    <div class="step slide" data-x="12000" data-y="-1500">
+    <div class="step slide" data-x="13000" data-y="-1500">
+        <q>
+            <big>Demos!</big>
+            <div align="center">
+                <img src="images/wild_stallions.jpg" />
+            </div>
+            <div align="center">
+                <small>can you believe they are making a third one of these?!</small>
+            </div>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="14000" data-y="-1500">
         <q>
             <big>Simple.Data</big>
             <ul>
@@ -200,7 +261,7 @@
         </q>
     </div>
 
-    <div class="step slide" data-x="13000" data-y="-1500">
+    <div class="step slide" data-x="15000" data-y="-1500">
         <q>
             <big>Simple.Data: The Good</big>
             <ul>
@@ -210,7 +271,7 @@
         </q>
     </div>
 
-    <div class="step slide" data-x="14000" data-y="-1500">
+    <div class="step slide" data-x="16000" data-y="-1500">
         <q>
             <big>Simple.Data: The Bad</big>
             <ul>
