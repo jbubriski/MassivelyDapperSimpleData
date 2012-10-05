@@ -56,6 +56,10 @@
             <small>A John Bubriski &amp; Jared Barboza joint</small>
         </q>
         <!--
+            How many people think that data access be a solved problem?
+
+            How many people want to just pick a DAL/ORM and never have to deal with it again?
+
             introduce yourself, hand-off to other presenter for introduction, 
             touch on rough outline of presentation and small backstory
             
@@ -272,11 +276,15 @@
             <big>Simple.Data: The Good</big>
             <ul>
                 <li>Syntax easy to grok</li>
+                <li>Maps to POCOS as well as Dynamic</li>
                 <li>ActiveRecord-like "FindBy" methods</li>
+                <li>MOCKING SUPPORT OOTB</li>
             </ul>
         </q>
         <!-- 
             Maybe mention activerecord, what it is.
+
+            Example to show mocking support in unit tests!
         -->
     </div>
 
@@ -284,8 +292,8 @@
         <q>
             <big>Simple.Data: The Bad</big>
             <ul>
-                <li>Doesn't map to POCOS</li>
-                <li>uhmmmm.....</li>
+                <li>Large Codebase</li>
+                <li>Only Sqlite, SqlServer, Sqlce are official</li>
             </ul>
         </q>
     </div>
@@ -301,6 +309,25 @@
             </div>
         </q>
     </div>
+
+    <!--
+        Simple.Data Demo notes:
+        -- we use this query to show the top 10 posts on the home page of StackUnderToe
+        SELECT 
+	        TOP 10 * 
+        FROM Posts 
+        WHERE
+	        AcceptedAnswerId IS NULL
+	        AND PostTypeId = 1
+        ORDER BY CreationDate, ViewCount DESC
+
+
+        -- IN SIMPLE.DATA
+        var posts = db.Posts
+                .FindAll( db.Posts.AcceptedAnswerId == null && db.Posts.PostTypeId == 1 )
+                .OrderByDescending( db.Posts.CreationDate )
+                .OrderByDescending( db.Posts.ViewCount );
+    -->
 
     <div class="step slide" data-x="18000" data-y="-1500">
         <q>

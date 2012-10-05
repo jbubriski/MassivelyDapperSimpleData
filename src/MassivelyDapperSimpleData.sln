@@ -26,7 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentatio
 		..\presentation\mine.html = ..\presentation\mine.html
 		..\presentation\README.md = ..\presentation\README.md
 	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackUnderToe", "StackUnderToe\StackUnderToe.csproj", "{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackUnderToe.Tests", "StackUnderToe.Tests\StackUnderToe.Tests.csproj", "{5B90FFEE-9558-4299-A34C-C76AD1DB700E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +61,10 @@ Global
 		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B90FFEE-9558-4299-A34C-C76AD1DB700E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B90FFEE-9558-4299-A34C-C76AD1DB700E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B90FFEE-9558-4299-A34C-C76AD1DB700E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B90FFEE-9558-4299-A34C-C76AD1DB700E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

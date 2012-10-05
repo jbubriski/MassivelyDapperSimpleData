@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Views</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach( var post in Model )
+    {
+        <tr>
+            <td>
+                @post.Title
+            </td>
+            <td>
+                @post.ViewCount
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

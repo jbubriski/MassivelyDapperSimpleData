@@ -30,7 +30,7 @@ AS
   /* Populate the temp table with the badges.xml file */
   INSERT INTO #WorkingTable
   SELECT *
-  FROM   OPENROWSET(BULK 'c:\temp\badges.xml',SINGLE_BLOB) AS data
+  FROM   OPENROWSET(BULK 'C:\Temp\gaming.stackexchange.com\badges.xml',SINGLE_BLOB) AS data
   
   /* Import the users records from the working table */
   DECLARE  @XML    AS XML
@@ -100,7 +100,7 @@ AS
   /* Populate the temp table with the comments.xml file */
   INSERT INTO #WorkingTable
   SELECT *
-  FROM   OPENROWSET(BULK 'c:\temp\comments.xml',SINGLE_BLOB) AS data
+  FROM   OPENROWSET(BULK 'C:\Temp\gaming.stackexchange.com\comments.xml',SINGLE_BLOB) AS data
   
   /* Import the users records from the working table */
   DECLARE  @XML    AS XML
@@ -192,7 +192,7 @@ CREATE TABLE [dbo].[Posts](
   /* Populate the temp table with the posts.xml file */
   INSERT INTO #WorkingTable
   SELECT *
-  FROM   OPENROWSET(BULK 'c:\temp\posts.xml',SINGLE_BLOB) AS data
+  FROM   OPENROWSET(BULK 'C:\Temp\gaming.stackexchange.com\posts.xml',SINGLE_BLOB) AS data
   
   /* Import the posts records from the working table */
   DECLARE  @XML    AS XML
@@ -318,7 +318,7 @@ AS
   /* Populate the temp table with the users.xml file */
   INSERT INTO #WorkingTable
   SELECT *
-  FROM   OPENROWSET(BULK 'c:\temp\users.xml',SINGLE_BLOB) AS data
+  FROM   OPENROWSET(BULK 'C:\Temp\gaming.stackexchange.com\users.xml',SINGLE_BLOB) AS data
   
   /* Import the users records from the working table */
   DECLARE  @XML    AS XML
@@ -414,7 +414,7 @@ AS
   /* Populate the temp table with the votes.xml file */
   INSERT INTO #WorkingTable
   SELECT *
-  FROM   OPENROWSET(BULK 'c:\temp\votes.xml',SINGLE_BLOB) AS data
+  FROM   OPENROWSET(BULK 'C:\Temp\gaming.stackexchange.com\votes.xml',SINGLE_BLOB) AS data
   
   /* Import the users records from the working table */
   DECLARE  @XML    AS XML
