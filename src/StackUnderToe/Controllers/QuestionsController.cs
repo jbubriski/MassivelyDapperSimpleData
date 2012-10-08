@@ -24,5 +24,47 @@ namespace StackUnderToe.Controllers
                 return View(posts);
             }
         }
+
+        public ActionResult Top()
+        {
+            using( var connection = ConnectionHelper.GetConnection() )
+            {
+                var posts = connection.Query<Post>( @"
+                                SELECT TOP (@Top) *
+                                FROM Posts
+                                Where PostTypeId = 1
+                                    AND ViewCount > 0
+                                    AND CommentCount > 0
+                                ORDER BY ViewCount DESC, CommentCount DESC", new { Top = 20 } );
+
+                return View( posts );
+            }
+        }
+
+        public ActionResult Details( int id )
+        {
+            using( var connection = ConnectionHelper.GetConnection() )
+            {
+                var post = connection.Query<Post>( @"
+                    SELECT * 
+                    FROM Posts
+                    WHERE Id = @Id", new { Id = id }  ).FirstOrDefault();
+
+                var owner = connection.Query<User>( @"
+                    SELECT *
+                    FROM Users
+                    WHERE Id = @Id", new { Id = post.OwnerUserId } ).FirstOrDefault();
+
+                var answers = connection.Query<Post>( @"
+                    SELECT *
+                    FROM Posts
+                    Where ParentId = @Id", new { Id = id } );
+
+                ViewBag.Owner = owner;
+                ViewBag.Answers = answers;
+
+                return View( post );
+            }
+        }
     }
 }

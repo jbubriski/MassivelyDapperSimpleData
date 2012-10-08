@@ -60,28 +60,11 @@
         <div class="row-fluid">
             <div class="span3">
                 <div class="well sidebar-nav">
-                    <ul class="nav nav-list">
-                        <li class="nav-header">Questions</li>
-                        <li class="active">@Html.ActionLink("New Unanswered Questions", "", "Questions")</li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li class="nav-header">Answers</li>
-                        <li>@Html.ActionLink("Answers", "", "Answers")</li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li class="nav-header">Users</li>
-                        <li>@Html.ActionLink("Users", "", "Users")</li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                    </ul>
+                    @Html.Partial( "_Menu", "");
                 </div>
             </div>
             <div class="span9">
-                <div class="hero-unit">
-                    @RenderBody()
-                </div>
+                @RenderBody()
             </div>
         </div>
 

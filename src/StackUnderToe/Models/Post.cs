@@ -64,5 +64,5 @@ namespace StackUnderToe
 		
 		[Display(Name="Parent Id")]
 		public Nullable<int> ParentId { get; set; }
-	}
+    }
 }

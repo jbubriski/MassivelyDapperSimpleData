@@ -1,0 +1,56 @@
+﻿@model StackUnderToe.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row-fluid">
+    <div class="span7">
+        <h2>@Model.Title</h2>
+
+        <p>
+            @Html.Raw(Model.Body)
+        </p>
+        <p>
+            <div class="span2 well pull-right">
+                By @ViewBag.Owner.DisplayName
+            </div>
+        </p>
+    </div>
+    <div class="span2">
+        <h3>Stats</h3>
+        <ul class="unstyled">
+            <li>@(Model.ViewCount ?? 0) views</li>
+            <li>@(Model.CommentCount ?? 0) comments</li>
+            <li>@(Model.AnswerCount ?? 0) answers</li>
+            <li>@(Model.FavoriteCount ?? 0) favorites</li>
+        </ul>
+
+        <h3>Tags</h3>
+        @foreach( var tag in @Model.Tags.Split( '>' ).Where( s => s.Trim().Length > 0 ) )
+        {
+            <span class="label label-info">@tag.Replace("<","")</span>
+        }
+        </ul>
+    </div>
+</div>
+<hr />
+<div class="row-fluid">
+    <div class="span9">
+        <h3>Answers</h3>
+    </div>
+    @foreach( var answer in ViewBag.Answers )
+    {
+        var accepted_answer = answer.Id == @Model.AcceptedAnswerId;
+        <div class="span9 well @(accepted_answer ? "text-success" : "")">
+            @if(accepted_answer) {
+                <h3>Accepted Answer:</h3>
+            }
+            @Html.Raw( answer.Body )
+        </div>    
+    }
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
