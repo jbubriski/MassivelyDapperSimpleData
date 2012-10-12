@@ -1,0 +1,62 @@
+﻿@model StackUnderToe.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row-fluid">
+    <div class="span7">
+        <h2>@Model.DisplayName</h2>
+        <p>
+            @Html.Raw(Model.AboutMe)
+        </p>
+    </div>
+    <div class="span3">
+        <h3>Stats</h3>
+        <ul class="unstyled">
+            <li>@Model.Age Years Old</li>
+            <li>@Model.Location</li>
+            <li><a href="@Model.WebsiteUrl">Website</a></li>
+            <li>Member since @Model.CreationDate.Value.ToShortDateString()</li>
+            <li>Last Seen @Model.LastAccessDate.Value.ToShortDateString()</li>
+            <li>@(Model.Reputation ?? 0) Reputation</li>
+            <li>@(Model.UpVotes ?? 0) Up Votes</li>
+            <li>@(Model.DownVotes ?? 0) Down Votes</li>
+        </ul>
+
+        @*<h3>Tags</h3>
+        @foreach( var tag in @Model.Tags.Split( '>' ).Where( s => s.Trim().Length > 0 ) )
+        {
+            <span class="label label-info">@tag.Replace("<","")</span>
+        }
+        </ul>*@
+    </div>
+</div>
+<hr />
+<div class="row-fluid">
+    <div class="span9">
+        <h3>Questions</h3>
+    </div>
+    @foreach (var question in ViewBag.Questions)
+    {
+        <div class="span9 well">
+            @question.Title
+        </div>    
+    }
+</div>
+<hr />
+<div class="row-fluid">
+    <div class="span9">
+        <h3>Answers</h3>
+    </div>
+    @foreach (var answer in ViewBag.Answers)
+    {
+        <div class="span9 well">
+            @Html.Raw(answer.Body)
+        </div>    
+    }
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

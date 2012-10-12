@@ -1,0 +1,13 @@
+﻿@model IEnumerable<StackUnderToe.User>
+@{
+    ViewBag.Title = "Stack Under Toe";
+}
+
+<h2>The Oldest Users</h2>
+
+<ul>
+    @foreach (var user in Model)
+    {
+        <li>@user.CreationDate.Value.ToShortDateString() - @Html.ActionLink(user.DisplayName, "Details", new { controller = "Users", id = user.Id }) </li>
+    }
+</ul>

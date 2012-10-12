@@ -45,6 +45,7 @@ namespace StackUnderToe.Controllers
         {
             using( var connection = ConnectionHelper.GetConnection() )
             {
+                // TODO: write snippet!
                 var post = connection.Query<Post>( @"
                     SELECT * 
                     FROM Posts

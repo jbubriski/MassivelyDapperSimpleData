@@ -1,0 +1,14 @@
+﻿@model IEnumerable<StackUnderToe.User>
+@{
+    ViewBag.Title = "Stack Under Toe";
+}
+
+<h2>Top Users</h2>
+<p>Users that have received the most upvotes.</p>
+
+<ul>
+    @foreach (var user in Model)
+    {
+        <li>@user.UpVotes - @Html.ActionLink(user.DisplayName, "Details", new { controller = "Users", id = user.Id }) </li>
+    }
+</ul>
