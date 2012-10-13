@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassivelyDapperSimpleData", "MassivelyDapperSimpleData\MassivelyDapperSimpleData.csproj", "{57D70859-936A-4FAB-AD9B-807D444E752C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2D6F582D-243F-4508-A5F9-C3B405C4CE19}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -37,10 +35,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{57D70859-936A-4FAB-AD9B-807D444E752C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57D70859-936A-4FAB-AD9B-807D444E752C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57D70859-936A-4FAB-AD9B-807D444E752C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57D70859-936A-4FAB-AD9B-807D444E752C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
