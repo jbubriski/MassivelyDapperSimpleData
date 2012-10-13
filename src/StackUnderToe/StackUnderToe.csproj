@@ -136,6 +136,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BadgesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
@@ -143,7 +144,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Badge.cs" />
+    <Compile Include="Models\BadgesTable.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Massive.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostsTag.cs" />
     <Compile Include="Models\User.cs" />
@@ -261,6 +264,9 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Top.cshtml" />
     <Content Include="Views\Users\Oldest.cshtml" />
+    <Content Include="Views\Badges\Index.cshtml" />
+    <Content Include="Views\Badges\Top.cshtml" />
+    <Content Include="Views\Badges\Rare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

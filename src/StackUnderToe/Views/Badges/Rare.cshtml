@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Rarest Badges";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>Badges with fewer than 5 users.</p>
+
+<ul>
+    @foreach (var badge in ViewBag.PopularBadges)
+    {
+        <li>@badge.Count / @badge.Name</li>
+    }
+</ul>
