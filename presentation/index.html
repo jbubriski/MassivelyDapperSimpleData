@@ -50,7 +50,7 @@
 
 <div id="impress">
     <div id="title_slide" class="step slide" data-x="-1000" data-y="-1500">
-        <q style="margin-top: 100px;">Building a <strong>Massive</strong>ly <strong>Dapper</strong>, <strong>Simple</strong> data layer with Micro ORMs.<br />
+        <q style="margin-top: 100px;">Building a <strong>Massive</strong>ly <strong>Dapper</strong>, <strong>Simple Data</strong> layer with Micro ORMs.<br />
             <br />
             <br />
             <small>A John Bubriski &amp; Jared Barboza joint</small>
@@ -60,16 +60,16 @@
 
             How many people want to just pick a DAL/ORM and never have to deal with it again?
 
-            introduce yourself, hand-off to other presenter for introduction, 
+            introduce yourself, hand-off to other presenter for introduction,
             touch on rough outline of presentation and small backstory
-            
-            ... peachtree? Ref that the project used Dapper, EF and Massive    
-            
+
+            ... peachtree? Ref that the project used Dapper, EF and Massive
+
             HOW MANY PEOPLE HAVE PLAYED AROUND WITH System.Dynamic AND TRYINVOKEMEMBER?
-            
+
             HOW MANY PEOPLE HAVE USED DYNAMIC LANGUAGES?
-            
-            HOW MANY PEOPLE HAVE USED ACTIVERECORD?    
+
+            HOW MANY PEOPLE HAVE USED ACTIVERECORD?
         -->
     </div>
 
@@ -82,7 +82,7 @@
             <div style="float: right">...how many of you just broke out in a cold sweat?</div>
         </q>
         <!--
-           The elephant in the room, we all hate EDMX. Almost anything would be better than working in it.     
+           The elephant in the room, we all hate EDMX. Almost anything would be better than working in it.
         -->
     </div>
 
@@ -131,15 +131,28 @@
 
     <div class="step slide" data-x="3000" data-y="-1500">
         <q>
-            <big>Micro ORMS</big>
+            <big>Micro ORMS: The Good</big>
             <p>
                 <ul>
                     <li>close to the "metal" (speed)</li>
                     <li>fancily hands you back your data</li>
                     <li>thin wrapper around SQL</li>
                     <li>can run straight SQL easily</li>
+                    <li>Testability (in some cases)</li>
                 </ul>
             </p>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="3000" data-y="-1500">
+        <q>
+            <big>Micro ORMS: The Bad</big>
+            <div align="center">
+                <img src="images/foreveralone.gif" height="375px" />
+            </div>
+            <div align="center">
+                <small>No relationships!</small>
+            </div>
         </q>
     </div>
 
@@ -163,7 +176,11 @@
         </q>
 
         <!--
-           Understanding the underlying tech will help you. 
+           Understanding the underlying tech will help you.
+
+           You learn the abstraction instead of the thing being abstracted.
+
+           Learning sql will apply to all of these micro-orms.
         -->
     </div>
 
@@ -173,11 +190,11 @@
             <ul>
                 <li>Rob Conery <small>(SubSonic, Tekpub)</small></li>
                 <li><em>"A small, happy, data access tool that will love you forever"</em></li>
-                <li>~400 Lines of Code</li>
+                <li>~600 Lines of Code</li>
             </ul>
         </q>
         <!--
-            
+
         -->
     </div>
 
@@ -185,7 +202,7 @@
         <q>
             <big>Massive: The Good</big>
             <ul>
-                <li>Write-optimized (Chuck shit into the db)</li>
+                <li>Write-optimized (Chuck stuff into the db)</li>
                 <li>ActiveRecord-like Validates* methods</li>
                 <li>Easy to understand</li>
                 <li><small>So easy to understand <em>anyone</em> can present it</small></li>
@@ -196,12 +213,11 @@
     <div class="step slide" data-x="8000" data-y="-1500">
         <q>
             <big>Massive: The Bad</big>
-            <div align="center">
-                <img src="images/foreveralone.gif" height="375px" />
-            </div>
-            <div align="center">
-                <small>No relationships!</small>
-            </div>
+            <ul>
+                <li>Returning as JSON: "Key", "Value"</li>
+                <li>Dynamic over POCOs</li>
+                <li>Some code convention cruft</li>
+            </ul>
         </q>
     </div>
 
@@ -234,7 +250,7 @@
                 <li>Fast!</li>
                 <li>Can use POCOs or Dynamic</li>
                 <li>Intellisense!</li>
-                <li>Caches Queries</li>
+                <li>Caches Mapping Methods (using Reflection.Emit)</li>
             </ul>
         </q>
     </div>
@@ -245,6 +261,7 @@
             <ul>
                 <li>Complicated Multi-mapping code</li>
                 <li>Lots of manual labor</li>
+                <li>Somewhat Complicated Codebase (Reflection.Emit)</li>
             </ul>
         </q>
     </div>
@@ -281,7 +298,7 @@
                 <li>MOCKING SUPPORT OOTB</li>
             </ul>
         </q>
-        <!-- 
+        <!--
             Maybe mention activerecord, what it is.
 
             Example to show mocking support in unit tests!
@@ -313,9 +330,9 @@
     <!--
         Simple.Data Demo notes:
         -- we use this query to show the top 10 posts on the home page of StackUnderToe
-        SELECT 
-	        TOP 10 * 
-        FROM Posts 
+        SELECT
+	        TOP 10 *
+        FROM Posts
         WHERE
 	        AcceptedAnswerId IS NULL
 	        AND PostTypeId = 1
