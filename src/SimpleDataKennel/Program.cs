@@ -9,7 +9,7 @@ namespace SimpleDataKennel
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main( string[] args )
         {
             // get all the dogs
             var db = Database.Open();
@@ -25,7 +25,7 @@ namespace SimpleDataKennel
             var dogsAndOwners = db.Dogs.Query()
                                     .Join( db.Owners ).On( db.Owners.Id == db.Dogs.OwnerId )
                                     .Join( db.Breeds ).On( db.Breeds.Id == db.Dogs.BreedId )
-                                    .Select( db.Dogs.Name, db.Owners.Name.As( "OwnerName" ), db.Breeds.Name.As("Breed") );
+                                    .Select( db.Dogs.Name, db.Owners.Name.As( "OwnerName" ), db.Breeds.Name.As( "Breed" ) );
 
             foreach( var dog in dogsAndOwners )
             {

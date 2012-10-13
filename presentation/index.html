@@ -326,7 +326,7 @@
         var posts = db.Posts
                 .FindAll( db.Posts.AcceptedAnswerId == null && db.Posts.PostTypeId == 1 )
                 .OrderByDescending( db.Posts.CreationDate )
-                .OrderByDescending( db.Posts.ViewCount );
+                .ThenByDescending( db.Posts.ViewCount );
     -->
 
     <div class="step slide" data-x="18000" data-y="-1500">
