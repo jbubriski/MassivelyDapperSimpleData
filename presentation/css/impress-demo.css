@@ -129,7 +129,7 @@ body     { pointer-events: none; }
 
 /* fade out inactive slides */
 .step:not(.active) {
-    opacity: 0.3;
+    opacity: 0.0;
 }
 
 /* STEP SPECIFIC STYLES */
@@ -454,8 +454,6 @@ body     { pointer-events: none; }
     display: block;
     font-size: 50px;
     line-height: 72px;
-
-    margin-top: 100px;
 }
 
 .slide q strong {

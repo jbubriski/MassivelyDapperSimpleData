@@ -50,7 +50,7 @@
 
 <div id="impress">
     <div id="title_slide" class="step slide" data-x="-1000" data-y="-1500">
-        <q>Building a <strong>Massive</strong>ly <strong>Dapper</strong>, <strong>Simple</strong> data layer with Micro ORMs.<br />
+        <q style="margin-top: 100px;">Building a <strong>Massive</strong>ly <strong>Dapper</strong>, <strong>Simple</strong> data layer with Micro ORMs.<br />
             <br />
             <br />
             <small>A John Bubriski &amp; Jared Barboza joint</small>
@@ -185,9 +185,9 @@
         <q>
             <big>Massive: The Good</big>
             <ul>
-                <li>Write-optimized</li>
-                <li>JSON is Massive's bestest friend</li>
+                <li>Write-optimized (Chuck shit into the db)</li>
                 <li>ActiveRecord-like Validates* methods</li>
+                <li>Easy to understand</li>
                 <li><small>So easy to understand <em>anyone</em> can present it</small></li>
             </ul>
         </q>
@@ -331,6 +331,30 @@
 
     <div class="step slide" data-x="18000" data-y="-1500">
         <q>
+            <big>Wrap-up</big>
+            <ul>
+                <li>Micro-orms: Production Ready and Fast</li>
+                <li>Each have strengths/weaknesses</li>
+            </ul>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="19000" data-y="-1500">
+        <q>
+            <big>But wait! There's more!</big>
+            <strong>Other Micro-ORMs</strong>
+            <ul>
+                <li>PetaPoco, Cambium(Oak), OrmLite(ServiceStack), check NuGet</li>
+            </ul>
+            <strong>Orm Extensions</strong>
+            <ul>
+                <li>ST4bby, MassiveRecord, Dapper-Async</li>
+            </ul>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="18000" data-y="-1500">
+        <q>
             <big>Fin. Questions?</big>
             <div style="clear: both; height: 10px;">&nbsp;</div>
             <img src="images/1239704376_michael_tackles_toby.gif" align="center" style="float: left; width: 445px;"/>
@@ -348,10 +372,12 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="js/impress.js"></script>
     <script type="text/javascript">
-        impress().init();
         (function ($) {
             $(function () {
-                
+                $('.slide').each(function (count, item) {
+                    $(this).attr('data-x', count * 1000);
+                });
+                impress().init();
             });
         })(jQuery);
     </script>
