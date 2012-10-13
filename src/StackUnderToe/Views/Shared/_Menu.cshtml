@@ -1,13 +1,17 @@
 ﻿@model System.String
 <ul class="nav nav-list" data-spy="affix" data-offset-top="40">
     <li class="nav-header">Questions</li>
-    <li>@Html.ActionLink("New Unanswered Questions", "", "questions")</li>
-    <li>@Html.ActionLink("Ask a Question", "new", "questions")</li>
+    <li>@Html.ActionLink("New Unanswered Questions", "", "Questions")</li>
+    <li>@Html.ActionLink("Ask a Question", "new", "Questions")</li>
     <li class="nav-header">Answers</li>
-    <li>@Html.ActionLink("Newest Answers", "newest", "answers")</li>
-    <li>@Html.ActionLink("Top Answers", "top", "answers")</li>
+    <li>@Html.ActionLink("Newest Answers", "", "Answers")</li>
+    <li>@Html.ActionLink("Top Answers", "Top", "Answers")</li>
     <li class="nav-header">Users</li>
-    <li>@Html.ActionLink("Newest Users", "newest", "users")</li>
-    <li>@Html.ActionLink("Top Users", "top", "users")</li>
-    <li>@Html.ActionLink("Oldest Users", "oldets", "users")</li>
+    <li>@Html.ActionLink("Newest Users", "", "Users")</li>
+    <li>@Html.ActionLink("Oldest Users", "Oldest", "Users")</li>
+    <li>@Html.ActionLink("Top Users", "Top", "Users")</li>
+    <li class="nav-header">Badges</li>
+    <li>@Html.ActionLink("Stats", "", "Badges")</li>
+    <li>@Html.ActionLink("Top Badges", "Top", "Badges")</li>
+    <li>@Html.ActionLink("Rare Badges", "Rare", "Badges")</li>
 </ul>

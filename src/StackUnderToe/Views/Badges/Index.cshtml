@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Badge Stats";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@ViewBag.UniqueBadgeCount Unique Badges</h3>
+
+<h3>@ViewBag.TotalBadgeCount Badges Awarded</h3>
+
+<h3>Most Popular Badges</h3>
+
+<ul>
+    @foreach (var badge in ViewBag.PopularBadges)
+    {
+        <li>@badge.Count / @badge.Name</li>
+    }
+</ul>
+
+<h3>Users With Most Badges</h3>
+
+<ul>
+    @foreach (var user in ViewBag.UsersWithMostBadges)
+    {
+        <li>@user.Count / @user.DisplayName</li>
+    }
+</ul>
