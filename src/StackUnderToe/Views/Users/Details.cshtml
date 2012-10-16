@@ -1,4 +1,4 @@
-﻿@model StackUnderToe.User
+﻿@model StackUnderToe.UserWithBadges
 
 @{
     ViewBag.Title = "Details";
@@ -10,13 +10,32 @@
         <p>
             @Html.Raw(Model.AboutMe)
         </p>
+        <hr />
+        <h3>Questions</h3>
+        @foreach (var question in ViewBag.Questions)
+        {
+            <div class="well">
+                @question.Title
+            </div>    
+        }
+        <hr />
+        <h3>Answers</h3>
+        @foreach (var answer in ViewBag.Answers)
+        {
+            <div class="well">
+                @Html.Raw(answer.Body)
+            </div>    
+        }
     </div>
     <div class="span3">
         <h3>Stats</h3>
         <ul class="unstyled">
             <li>@Model.Age Years Old</li>
             <li>@Model.Location</li>
-            <li><a href="@Model.WebsiteUrl">Website</a></li>
+            @if (!string.IsNullOrWhiteSpace(Model.WebsiteUrl))
+            { 
+                <li><a href="@Model.WebsiteUrl">Website</a></li>
+            }
             <li>Member since @Model.CreationDate.Value.ToShortDateString()</li>
             <li>Last Seen @Model.LastAccessDate.Value.ToShortDateString()</li>
             <li>@(Model.Reputation ?? 0) Reputation</li>
@@ -24,37 +43,12 @@
             <li>@(Model.DownVotes ?? 0) Down Votes</li>
         </ul>
 
-        @*<h3>Tags</h3>
-        @foreach( var tag in @Model.Tags.Split( '>' ).Where( s => s.Trim().Length > 0 ) )
+        <h3>Badges</h3>
+        @foreach (var badge in @Model.Badges)
         {
-            <span class="label label-info">@tag.Replace("<","")</span>
+            <span class="label label-info">@badge.Key@(badge.Value > 1 ? string.Format(" x {0}", badge.Value) : "")</span>
         }
-        </ul>*@
     </div>
-</div>
-<hr />
-<div class="row-fluid">
-    <div class="span9">
-        <h3>Questions</h3>
-    </div>
-    @foreach (var question in ViewBag.Questions)
-    {
-        <div class="span9 well">
-            @question.Title
-        </div>    
-    }
-</div>
-<hr />
-<div class="row-fluid">
-    <div class="span9">
-        <h3>Answers</h3>
-    </div>
-    @foreach (var answer in ViewBag.Answers)
-    {
-        <div class="span9 well">
-            @Html.Raw(answer.Body)
-        </div>    
-    }
 </div>
 
 <p>
