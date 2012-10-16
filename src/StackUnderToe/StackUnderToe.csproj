@@ -267,6 +267,7 @@
     <Content Include="Views\Badges\Index.cshtml" />
     <Content Include="Views\Badges\Top.cshtml" />
     <Content Include="Views\Badges\Rare.cshtml" />
+    <Content Include="Views\Badges\Page.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Page";
+}
+
+<h2>Browse Badges</h2>
+<p>There are a lot of badges, you've been warned!</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Badge Name</th>
+            <th>User Id</th>
+            <th>Creation Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var item in Model )
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@Html.ActionLink((string)item.UserId.ToString(), "Details", new{ controller = "Users", id = item.UserId })</td>
+                <td>@item.CreationDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{ int pageNumber = Convert.ToInt32( Request.QueryString[ "page" ] ); }
+
+<div class="pagination">
+  <ul>
+    @if(pageNumber == 1) {
+      <li class="disabled"><a href="#">Prev</a></li>
+      <li><a href="/badges/page?page=@(pageNumber+1)">Next</a></li>
+    } else if(pageNumber == Model.MaxRows) {
+      <li><a href="/badges/page?page=@(pageNumber-1)">Prev</a></li>
+      <li class="disabled"><a href="#">Next</a></li>
+    } else {
+      <li><a href="/badges/page?page=@(pageNumber-1)">Prev</a></li>
+      <li><a href="/badges/page?page=@(pageNumber+1)">Next</a></li>
+    }
+  </ul>
+</div>

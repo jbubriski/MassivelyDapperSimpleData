@@ -13,7 +13,8 @@ namespace StackUnderToe.Controllers
         {
             var db = Database.OpenNamedConnection("Default");
 
-            List<Post> posts = db.Posts
+            // TODO: refactor to use List<Post>
+            var posts = db.Posts
                             .FindAll( db.Posts.AcceptedAnswerId == null && db.Posts.PostTypeId == 1 )
                             .OrderByDescending( db.Posts.ViewCount )
                             .ThenByDescending( db.Posts.CreationDate )
