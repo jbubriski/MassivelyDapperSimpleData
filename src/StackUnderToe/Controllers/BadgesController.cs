@@ -37,12 +37,7 @@ namespace StackUnderToe.Controllers
         {
             var badgesTable = new BadgesTable();
 
-            // var pagedList = badgesTable.Paged( currentPage: page );
-
-            var pagedList = badgesTable.Query( @"
-                                                SELECT TOP 20 * FROM Badges B, RowNumber() as RowNumber, Count(*) as MaxRows
-                                                INNER JOIN Users U on U.Id = B.UserId
-                                                WHERE RowNumber > @0", 20 * (page-1));
+            var pagedList = badgesTable.Paged( currentPage: page );
 
             return View( pagedList );
         }

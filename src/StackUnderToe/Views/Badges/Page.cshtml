@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach( var item in Model )
+        @foreach( var item in Model.Items )
         {
             <tr>
                 <td>@item.Name</td>
@@ -32,7 +32,7 @@
     @if(pageNumber == 1) {
       <li class="disabled"><a href="#">Prev</a></li>
       <li><a href="/badges/page?page=@(pageNumber+1)">Next</a></li>
-    } else if(pageNumber == Model.MaxRows) {
+    } else if(pageNumber == Model.TotalPages ) {
       <li><a href="/badges/page?page=@(pageNumber-1)">Prev</a></li>
       <li class="disabled"><a href="#">Next</a></li>
     } else {
