@@ -4,12 +4,37 @@
 
 <h2>@ViewBag.Title</h2>
 
-<h3>@ViewBag.UniqueBadgeCount Unique Badges</h3>
+<form class="form-inline" action="/badges/create" method="post">
+    <input name="name" type="text" class="input-small" placeholder="Badge Name">
+    <input name="userid" type="text" class="input-small" placeholder="UserId">
+    <input type="submit" value="Award Badge" class="btn" />
+</form>
+<div class="row-fluid">
+    <div class="span6">
+        <div class="well">
+            <h3>@ViewBag.UniqueBadgeCount Unique Badges</h3>
+            <h3>@ViewBag.TotalBadgeCount Badges Awarded</h3>
+        </div>
+    </div>
 
-<h3>@ViewBag.TotalBadgeCount Badges Awarded</h3>
+    <div class="span6">
+        <h3>Most Recent Badges</h3>
+        <ul>
+            @foreach ( var badge in ViewBag.RecentBadges )
+            {
+                <li>@badge.Name / @badge.UserId</li>
+            }
+        </ul>
 
-<h3>Most Popular Badges</h3>
+        <h3>Most Popular Badges</h3>
+        <ul>
+            @foreach (var badge in ViewBag.PopularBadges)
+            {
+                <li>@badge.Count / @badge.Name</li>
+            }
+        </ul>
 
+<<<<<<< HEAD
 <ul>
     @foreach (var badge in ViewBag.PopularBadges)
     {
@@ -27,3 +52,14 @@
 </ul>
 
 @Html.ActionLink( "Browse Badges", "Page", new { page = 1 } )
+=======
+        <h3>Users With Most Badges</h3>
+        <ul>
+            @foreach (var user in ViewBag.UsersWithMostBadges)
+            {
+                <li>@user.Count / @user.DisplayName</li>
+            }
+        </ul>
+    </div>
+</div>
+>>>>>>> Examples
