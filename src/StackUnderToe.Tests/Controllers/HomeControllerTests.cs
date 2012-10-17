@@ -45,7 +45,7 @@ namespace StackUnderToe.Tests.Controllers
 
             var result = _controller.Index() as ViewResult;
 
-            dynamic model = result.Model;
+            List<Post> model = (dynamic)result.Model;
 
             Assert.Equal( 10, model.Count() );
         }
@@ -59,7 +59,7 @@ namespace StackUnderToe.Tests.Controllers
 
             var result = _controller.Index() as ViewResult;
 
-            dynamic model = result.Model;
+            List<Post> model = (dynamic)result.Model;
 
             Assert.Equal( 100, model.First().ViewCount );
         }
