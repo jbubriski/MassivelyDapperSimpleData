@@ -8,14 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2D6F58
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperKennel", "DapperKennel\DapperKennel.csproj", "{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kennel.Helpers", "Kennel.Helpers\Kennel.Helpers.csproj", "{C831E411-DB9A-492D-BEEB-E0A0A42AF6E1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataKennel", "SimpleDataKennel\SimpleDataKennel.csproj", "{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiveKennel", "MassiveKennel\MassiveKennel.csproj", "{93453D18-6742-46A3-AAAD-968D74218889}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{87390421-BCDA-45DC-80F9-7BD07D4444D3}"
 	ProjectSection(SolutionItems) = preProject
 		..\presentation\apple-touch-icon.png = ..\presentation\apple-touch-icon.png
@@ -29,28 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackUnderToe", "StackUnder
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackUnderToe.Tests", "StackUnderToe.Tests\StackUnderToe.Tests.csproj", "{5B90FFEE-9558-4299-A34C-C76AD1DB700E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicKennel", "DynamicKennel\DynamicKennel.csproj", "{81C36FC2-B60B-4B49-A135-6F418E76F1A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{670C79DD-9A0D-4E85-A323-0356BBFBCA7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C831E411-DB9A-492D-BEEB-E0A0A42AF6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C831E411-DB9A-492D-BEEB-E0A0A42AF6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C831E411-DB9A-492D-BEEB-E0A0A42AF6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C831E411-DB9A-492D-BEEB-E0A0A42AF6E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAA9716F-7FA4-491B-9DF4-BBD9A8CF7807}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93453D18-6742-46A3-AAAD-968D74218889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93453D18-6742-46A3-AAAD-968D74218889}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93453D18-6742-46A3-AAAD-968D74218889}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93453D18-6742-46A3-AAAD-968D74218889}.Release|Any CPU.Build.0 = Release|Any CPU
 		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{926D8A5F-9A96-4B63-B84A-791E8E6ADED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,6 +37,10 @@ Global
 		{5B90FFEE-9558-4299-A34C-C76AD1DB700E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B90FFEE-9558-4299-A34C-C76AD1DB700E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B90FFEE-9558-4299-A34C-C76AD1DB700E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C36FC2-B60B-4B49-A135-6F418E76F1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C36FC2-B60B-4B49-A135-6F418E76F1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C36FC2-B60B-4B49-A135-6F418E76F1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C36FC2-B60B-4B49-A135-6F418E76F1A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
